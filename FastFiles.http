@@ -1,0 +1,6 @@
+@FastFiles_HostAddress = http://localhost:5182
+
+GET {{FastFiles_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
