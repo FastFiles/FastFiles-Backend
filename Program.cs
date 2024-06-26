@@ -1,4 +1,6 @@
+using FastFiles.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -26,6 +28,12 @@ builder.Services.AddAuthentication(opt => {
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mcrfnief3ie84r4hrffrñ@dnrcnjfcnfnjcnjr232N"))
     };
 });
+//Agregamos la configuración de la base de datos
+
+builder.Services.AddDbContext<FastFilesContext>(options => 
+options.UseMySql (
+    builder.Configuration.GetConnectionString("MySqlConnectionString"),
+    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
 
 var app = builder.Build();
 
