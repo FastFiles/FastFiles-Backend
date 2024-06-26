@@ -1,9 +1,12 @@
 CREATE TABLE Users (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    Username VARCHAR(125) NOT NULL,
+    Name VARCHAR(125) NOT NULL,
     Password VARCHAR(100) NOT NULL,
     Email VARCHAR(150) NOT NULL UNIQUE
 );
+
+INSERT INTO Users (Name, Password, Email)
+VALUES ("Rafa", 'rafa123', "rafa@gmail.com");
 
 CREATE TABLE Folders (
     Id INT PRIMARY KEY AUTO_INCREMENT,
