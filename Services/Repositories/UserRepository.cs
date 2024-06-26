@@ -30,4 +30,10 @@ public class UserRepository : IUserRepository
 
         return user;
     }
+
+    public void Create(User user)
+    {
+        _context.Users.Add(user);
+        _context.SaveChanges();
+    }
 }
