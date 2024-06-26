@@ -18,4 +18,16 @@ public class UserRepository : IUserRepository
     {
         return _context.Users.ToList();
     }
+
+    public ActionResult<User> GetOne(int id)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user == null)
+        {
+            return new NotFoundResult();
+        }
+
+        return user;
+    }
 }

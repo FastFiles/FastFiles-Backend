@@ -21,5 +21,11 @@ namespace FastFiles.Controllers
         {
             return _userRepository.GetAll();
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<User> GetOne(int id)
+        {
+            return _userRepository.GetOne(id);
+        }
     }
 }
