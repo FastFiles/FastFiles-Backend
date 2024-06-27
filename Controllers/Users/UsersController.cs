@@ -19,13 +19,32 @@ namespace FastFiles.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetAll()
         {
-            return _userRepository.GetAll();
+            try
+            {
+                return Ok(_userRepository.GetAll());
+            } catch (Exception e)
+            {
+                return BadRequest($"Error al traer los usuarios: {e.Message}");
+            }
         }
 
         [HttpGet("{id}")]
         public ActionResult<User> GetOne(int id)
         {
-            return _userRepository.GetOne(id);
+            var user = _userRepository.GetOne(id);
+
+            if (user == null)
+            {
+                return NotFound($"No se encontró el usuario con id {id}");
+            }
+            
+            try
+            {
+                return Ok(user);
+            } catch (Exception e)
+            {
+                return BadRequest($"Error al traer el usuario con id {id}: {e.Message}");
+            }
         }
     }
 }
