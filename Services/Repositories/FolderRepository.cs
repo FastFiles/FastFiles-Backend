@@ -19,4 +19,8 @@ public class FolderRepository : IFolderRepository
         return _context.Folders.Include(f => f.User).ToList();
     }
 
+    public Folder GetOne(int id)
+    {
+        return _context.Folders.Include(f => f.User).FirstOrDefault(f => f.Id == id);
+    }
 }

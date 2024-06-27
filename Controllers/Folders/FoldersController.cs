@@ -29,5 +29,24 @@ namespace FastFiles.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetFolder(int id)
+        {
+            try
+            {
+                var folder = _folderRepository.GetOne(id);
+
+                if (folder == null)
+                {
+                    return NotFound($"No se encontró la carpeta con id {id}");
+                }
+
+                return Ok(folder);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Error al traer la carpeta: {e.Message}");
+            }
+        }
     }
 }
