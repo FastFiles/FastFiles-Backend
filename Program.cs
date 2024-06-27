@@ -44,6 +44,7 @@ builder.Services.AddDbContext<FastFilesContext>(options =>
 
 // Scopes de los servicios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IFolderRepository, FolderRepository>();
 
 var app = builder.Build();
 
