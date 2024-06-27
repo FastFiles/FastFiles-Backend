@@ -15,5 +15,8 @@ namespace FastFiles.Models
 
         [Required(ErrorMessage = "Campo Correo es requerido")]
         public string? Email { get; set; }
+
+        [JsonIgnore]
+        public List<Folder>? Folders { get; set; }
     }
 }

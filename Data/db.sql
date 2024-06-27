@@ -11,6 +11,7 @@ VALUES ("Rafa", 'rafa123', "rafa@gmail.com");
 CREATE TABLE Folders (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(125) NOT NULL,
+    Description VARCHAR(150) NOT NULL,
     DateCreated DATE NOT NULL,
     DateModified DATE NOT NULL,
     Location VARCHAR(125) NOT NULL,
