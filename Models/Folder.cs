@@ -13,16 +13,16 @@ namespace FastFiles.Models
         [Required(ErrorMessage = "Campo Descripción es requerido")]
         public string? Description { get; set; }
 
-        [Required(ErrorMessage = "Campo Fecha de Creación es requerido")]
+        // [Required(ErrorMessage = "Campo Fecha de Creación es requerido")]
         public DateTime? DateCreated { get; set; }
 
-        [Required(ErrorMessage = "Campo Fecha de Modificación es requerido")]
+        // [Required(ErrorMessage = "Campo Fecha de Modificación es requerido")]
         public DateTime? DateModified { get; set; }
 
         [Required(ErrorMessage = "Campo Ubicación es requerido")]
         public string? Location { get; set; }
 
-        [Required(ErrorMessage = "Campo Estado es requerido")]
+        // [Required(ErrorMessage = "Campo Estado es requerido")]
         public string? Status { get; set; }
 
         [Required(ErrorMessage = "Relación de Usuario es requerido")]

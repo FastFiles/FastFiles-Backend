@@ -5,7 +5,7 @@ using FastFiles.Services;
 namespace FastFiles.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/folders")]
 
     public class FoldersController : ControllerBase
     {

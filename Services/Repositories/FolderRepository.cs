@@ -23,4 +23,14 @@ public class FolderRepository : IFolderRepository
     {
         return _context.Folders.Include(f => f.User).FirstOrDefault(f => f.Id == id);
     }
+
+    public void Create(Folder folder)
+    {
+        folder.DateCreated = DateTime.Now;
+        folder.DateModified = DateTime.Now;
+        folder.Status = "Active";
+
+        _context.Folders.Add(folder);
+        _context.SaveChanges();
+    }
 }

@@ -7,5 +7,6 @@ namespace FastFiles.Services
     {
         public IEnumerable<Folder> GetAll();
         public Folder GetOne(int id);
+        public void Create(Folder folder);
     }
 }
