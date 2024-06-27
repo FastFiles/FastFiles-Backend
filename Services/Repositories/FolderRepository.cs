@@ -33,4 +33,12 @@ public class FolderRepository : IFolderRepository
         _context.Folders.Add(folder);
         _context.SaveChanges();
     }
+
+    public void Update(Folder folder)
+    {
+        folder.DateModified = DateTime.Now;
+
+        _context.Folders.Update(folder);
+        _context.SaveChanges();
+    }
 }
