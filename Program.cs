@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FastFiles.Services;
+using FastFiles.Helpers;
+using FastFiles.Providers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -44,6 +46,10 @@ builder.Services.AddDbContext<FastFilesContext>(options =>
 
 // Scopes de los servicios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+//Agregamos los servicios de las carpetas Helpers y Providers
+builder.Services.AddSingleton<HelperUploadFiles>();
+builder.Services.AddSingleton<PathProvider>();
 
 var app = builder.Build();
 
