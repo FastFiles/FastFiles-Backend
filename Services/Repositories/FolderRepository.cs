@@ -49,4 +49,10 @@ public class FolderRepository : IFolderRepository
         _context.Folders.Update(folder);
         _context.SaveChanges();
     }
+
+    public void Delete(Folder folder)
+    {
+        _context.Folders.Remove(folder);
+        _context.SaveChanges();
+    }
 }

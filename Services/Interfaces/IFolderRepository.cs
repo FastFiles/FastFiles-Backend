@@ -10,5 +10,6 @@ namespace FastFiles.Services
         public void Create(Folder folder);
         public void Update(Folder folder);
         public void Trash(Folder folder);
+        public void Delete(Folder folder);
     }
 }
