@@ -46,6 +46,7 @@ builder.Services.AddDbContext<FastFilesContext>(options =>
 
 // Scopes de los servicios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IFolderRepository, FolderRepository>();
 
 //Agregamos los servicios de las carpetas Helpers y Providers
 builder.Services.AddSingleton<HelperUploadFiles>();

@@ -8,5 +8,6 @@ namespace FastFiles.Data
         public FastFilesContext(DbContextOptions<FastFilesContext> options) : base(options) {}
         
         public DbSet<User> Users { get; set; }
+        public DbSet<Folder> Folders { get; set; }
     }
 }
