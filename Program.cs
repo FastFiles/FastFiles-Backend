@@ -47,10 +47,14 @@ builder.Services.AddDbContext<FastFilesContext>(options =>
 // Scopes de los servicios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IFolderRepository, FolderRepository>();
+builder.Services.AddScoped<IMailerSendRepository, MailerSendRepository>();
 
 //Agregamos los servicios de las carpetas Helpers y Providers
 builder.Services.AddSingleton<HelperUploadFiles>();
 builder.Services.AddSingleton<PathProvider>();
+
+// Cliente Http (MailerSend)
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
