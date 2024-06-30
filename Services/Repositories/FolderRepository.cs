@@ -41,4 +41,12 @@ public class FolderRepository : IFolderRepository
         _context.Folders.Update(folder);
         _context.SaveChanges();
     }
+
+    public void Trash(Folder folder)
+    {
+        folder.Status = "Inactive";
+
+        _context.Folders.Update(folder);
+        _context.SaveChanges();
+    }
 }

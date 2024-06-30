@@ -9,5 +9,6 @@ namespace FastFiles.Services
         public Folder GetOne(int id);
         public void Create(Folder folder);
         public void Update(Folder folder);
+        public void Trash(Folder folder);
     }
 }
