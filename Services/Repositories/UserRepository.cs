@@ -8,10 +8,13 @@ namespace FastFiles.Services;
 public class UserRepository : IUserRepository
 {
     private readonly FastFilesContext _context;
+    private readonly IMailerSendRepository _mailerSendRepository;
 
-    public UserRepository(FastFilesContext context)
+
+    public UserRepository(FastFilesContext context, IMailerSendRepository mailerSendRepository)
     {
         _context = context;
+        _mailerSendRepository = mailerSendRepository;
     }
 
     public ActionResult<IEnumerable<User>> GetAll()
@@ -35,6 +38,8 @@ public class UserRepository : IUserRepository
     {
         _context.Users.Add(user);
         _context.SaveChanges();
+
+        _mailerSendRepository.SendMail(user.Email, user.Name);
     }
 
     public void Update(User user)
