@@ -12,6 +12,7 @@ SELECT * FROM Users;
 CREATE TABLE Folders (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(125) NOT NULL,
+    Description VARCHAR(150) NOT NULL,
     DateCreated DATE NOT NULL,
     DateModified DATE NOT NULL,
     Location VARCHAR(125) NOT NULL,
@@ -41,3 +42,4 @@ VALUES
 ('example_file_1.txt', '2024-06-28', '2024-06-28', "0x48656c6c6f2c20576f726c6421", 'Active', 1, 1),
 ('example_file_2.pdf', '2024-06-29', '2024-06-29', "0x48656c6c6f2c20576f726c6421", 'Inactive', 2, 2);
 
+SELECT * FROM File;

@@ -9,7 +9,7 @@ namespace FastFiles.Data
         
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Files> File {get; set;} 
-        //public DbSet<Folder> Folders {get; set;} 
+        public DbSet<Files> File {get; set;}  
+        public DbSet<Folder> Folders { get; set; }
     }
 }

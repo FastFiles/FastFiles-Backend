@@ -19,5 +19,8 @@ namespace FastFiles.Models
         public string? Email { get; set; }
         [JsonIgnore]
         public List<Files>? File  {get; set;} //Aperece un error si no especifico que pudede reciir parametro nulos. Why Idk., creo que es por los campos requeridos.
+
+        [JsonIgnore]
+        public List<Folder>? Folders { get; set; }
     }
 }
