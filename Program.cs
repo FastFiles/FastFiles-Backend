@@ -33,8 +33,8 @@ builder.Services.AddAuthentication(opt => {
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = "", //Agregamos variable de entorno Jwt
-        ValidAudience = "",
+        ValidIssuer = @Environment.GetEnvironmentVariable("Jwturl"), //Agregamos variable de entorno Jwt
+        ValidAudience = @Environment.GetEnvironmentVariable("JwtUrl"),
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mcrfnief3ie84r4hrffrñ@dnrcnjfcnfnjcnjr232N"))
     };
 });
@@ -48,6 +48,7 @@ builder.Services.AddDbContext<FastFilesContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IFolderRepository, FolderRepository>();
 builder.Services.AddScoped<IMailerSendRepository, MailerSendRepository>();
+builder.Services.AddScoped<IFilesRepository, FilesRepository>();
 
 //Agregamos los servicios de las carpetas Helpers y Providers
 builder.Services.AddSingleton<HelperUploadFiles>();
