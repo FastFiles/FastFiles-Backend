@@ -1,6 +1,7 @@
 using FastFiles.Data;
 using FastFiles.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastFiles.Services;
 
@@ -19,17 +20,12 @@ public class FilesRepository : IFilesRepository
 
     public ActionResult<IEnumerable<Files>> GetAll()
     {
-        return _context.File.ToList();
+        return _context.File.Include(f=> f.Folder).Include(f=> f.User).ToList();
     }
 
     public ActionResult<Files> GetOne(int id)
     {
-       var file = _context.File.FirstOrDefault(f => f.Id == id); 
-       if (file == null)
-       {
-         return new NotFoundResult();
-       }
-       return file;
+       return _context.File.Include(f => f.Folder).Include(f=> f.User).FirstOrDefault(f=>f.Id == id);
     }
 
     public void Update(Files files)
