@@ -1,30 +1,34 @@
 using FastFiles.Services;
 using Microsoft.AspNetCore.Mvc;
 using FastFiles.Models;
+using FastFiles.Helpers;
 
 namespace FastFiles.Controllers
 {
     [ApiController]
-    [Route("api/Created/Archivo")]
+    [Route("Created/File")]
     public class FilesCreatedControllers : ControllerBase
     {
+        private readonly HelperUploadFiles helperUploadFiles;
         private readonly IFilesRepository _filesRepository;
-        public FilesCreatedControllers(IFilesRepository filesRepository)
+        public FilesCreatedControllers(IFilesRepository filesRepository, HelperUploadFiles helperUpload)
         {
             _filesRepository = filesRepository;
+            this.helperUploadFiles = helperUpload;
         }
         [HttpPost]
-        public IActionResult Create (Files files)
+        public async Task <IActionResult> CreateFile([FromBody] Files files , IFormFile file)
         {
-            try 
+            try
             {
-                _filesRepository.Create(files);
-                return Ok("El archivo se creo Exitosamente");
+                _filesRepository.CreateFile(files);
+                return Ok("El archivo se a creado exitosamente");
             }
             catch
             {
-                return BadRequest("Ocurrio un error a la hora de crear el archivo.");
+                return BadRequest("A ocurrido un error al intentar crear el archivo");
             }
         }
+        
     }
 }
