@@ -21,6 +21,8 @@ CREATE TABLE Folders (
     FOREIGN KEY (UserId) REFERENCES Users(Id)
 );
 
+SELECT * FROM Folders;
+
 DROP TABLE Folders;
 
 CREATE TABLE File (
@@ -35,6 +37,7 @@ CREATE TABLE File (
     FOREIGN KEY (FolderId) REFERENCES Folders(Id),
     FOREIGN KEY (UserId) REFERENCES Users(Id)
 );
+
 
 DROP TABLE File;
 INSERT INTO File (Name, DateCreated, DateModified, Data, Status, UserId, FolderId)

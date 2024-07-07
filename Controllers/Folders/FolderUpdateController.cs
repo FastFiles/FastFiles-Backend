@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using FastFiles.Models;
 using FastFiles.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace FastFiles.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] //Validamso con el token 
     [ApiController]
     [Route("api/folders")]
 

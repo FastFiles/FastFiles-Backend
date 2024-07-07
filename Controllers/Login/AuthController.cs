@@ -1,7 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using FastFiles.Data;
 using FastFiles.Dto;
+using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -30,10 +32,18 @@ namespace FastFiles.Controllers
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mcrfnief3ie84r4hrffrñ@dnrcnjfcnfnjcnjr232N"));
             var singningCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
+            //Usamos el claims para las reclamaciones del token 
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim("id",user.Id.ToString()) //Agregams este para la validación entre los users
+            };
+
             //Agregamos las opciones del token 
             var tokenOptions = new JwtSecurityToken(
                 issuer: @Environment.GetEnvironmentVariable("Jwturl"),
                 audience: @Environment.GetEnvironmentVariable("Jwturl"),
+                claims: claims, //Aqui usmos los claims para validaciones
                 expires: DateTime.Now.AddHours(1),
                 signingCredentials: singningCredentials
             );

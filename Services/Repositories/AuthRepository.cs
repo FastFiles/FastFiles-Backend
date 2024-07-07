@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using FastFiles.Data;
 using FastFiles.Dto;
+using FastFiles.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace FastFiles.Services
@@ -20,6 +21,8 @@ namespace FastFiles.Services
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_configuration["key"]);
+          
+
             var tokenOptions = new JwtSecurityToken(
                 issuer: @Environment.GetEnvironmentVariable("Jwturl"),
                 audience: @Environment.GetEnvironmentVariable("Jwturl"),

@@ -1,6 +1,3 @@
-
-using FastFiles.Models; //este se genera por el modelo del enum
-
 namespace FastFiles.Models{
     
     public class Files
@@ -17,7 +14,7 @@ namespace FastFiles.Models{
         public int UserId  {get; set;} 
         public User User {get; set;} //Usamos la relación de Modelos
         public int FolderId  {get; set;}
-        public Folder Folder {get; set;} //Hace falta el modelo folder di mi estimado...
+        public Folder Folder {get; set;}
 
 
     }
