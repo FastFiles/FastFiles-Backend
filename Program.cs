@@ -75,8 +75,8 @@ if (app.Environment.IsDevelopment())
 
 
 //Jwt
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 
