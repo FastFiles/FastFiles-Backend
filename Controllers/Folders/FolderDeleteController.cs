@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace FastFiles.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] //Aqui validamos con el token Jwt
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] //Aqui validamos con el token Jwt
     [ApiController]
     [Route("api/folders/delete")]
 
